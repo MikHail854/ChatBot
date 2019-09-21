@@ -33,10 +33,6 @@ public class SimpleBot {
                 pattern = Pattern.compile(o.getKey());
                 if (pattern.matcher(message).find())
                     if (o.getValue().equals("whattime")) return date.toString();
-                   /* if(o.getValue().equals("joke")){
-                        Joke joke = new Joke();
-                        return joke.Joke();
-                    }*/
                     else return answers_by_patterns.Answers_By_Patterns().get(o.getValue());
             }
         }

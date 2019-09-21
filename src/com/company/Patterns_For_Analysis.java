@@ -35,7 +35,7 @@ public class Patterns_For_Analysis {
         put("чувствую", "iamfeelling");
         put("испытываю", "iamfeelling");
         // yes
-        put("^да", "yes");
+        put("да", "yes");
         put("согласен", "yes");
         // whattime
         put("который\\s.*час", "whattime");
@@ -44,12 +44,17 @@ public class Patterns_For_Analysis {
         put("прощай", "bye");
         put("увидимся", "bye");
         put("до\\s.*свидания", "bye");
+        put("чао", "bye");
+        put("бай", "bye");
+        put("до\\s.*скорого", "bye");
+
 
 
         //joke
         put("расскажи\\s.*шутку", "joke");
         put("анекдот", "joke");
         put("развесели\\s.*меня", "joke");
+        put("как насчет шутки", "joke");
 
     }};
 

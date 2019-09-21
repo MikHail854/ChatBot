@@ -17,8 +17,7 @@ public class Answers_By_Patterns {
         put("bye", "До свидания. Надеюсь, ещё увидимся.");
 
         put("joke", joke.Joke());
-        //put("joke", "Велик и могуч русский язык. На великом можно написать многотомный роман," +
-              //  " а на могучем за минуту передать его содержание.");
+
     }};
 
     public Map<String, String> Answers_By_Patterns(){

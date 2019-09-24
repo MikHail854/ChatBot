@@ -56,6 +56,11 @@ public class Patterns_For_Analysis {
         put("развесели\\s.*меня", "joke");
         put("как насчет шутки", "joke");
 
+
+        //game
+        put("давай\\s.*поиграем", "game");
+        put("сыграем", "game");
+
     }};
 
     public Map<String, String> Patterns_For_Analysis(){

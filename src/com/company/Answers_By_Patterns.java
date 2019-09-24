@@ -1,10 +1,13 @@
 package com.company;
 
+import com.company.game.more_or_less.More_or_less;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Answers_By_Patterns {
     Joke joke = new Joke();
+    More_or_less more_or_less = new More_or_less();
     final Map<String, String> ANSWERS_BY_PATTERNS = new HashMap<String, String>() {{
         put("hello", "Здравствуйте, рад Вас видеть.");
         put("who", "Я обычный чат-бот.");
@@ -17,6 +20,9 @@ public class Answers_By_Patterns {
         put("bye", "До свидания. Надеюсь, ещё увидимся.");
 
         put("joke", joke.Joke());
+
+        //put("game", more_or_less.More_or_less());
+
 
     }};
 

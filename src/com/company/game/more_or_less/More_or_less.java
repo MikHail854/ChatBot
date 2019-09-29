@@ -7,7 +7,7 @@ import javax.swing.*;
  * При неправильном ответе я тебе даю подсказку: загаданное число "больше" или "меньше"
  */
 
-public class More_or_less extends JFrame /*implements ActionListener*/ {
+public class More_or_less /*extends JFrame /*implements ActionListener*/ {
     final int min = 1;// Минимальное число для диапазона
     final int max = 100;// Максимальное число для диапазона
     final int rnd = rnd(min, max);

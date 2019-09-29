@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.game.Game;
+import javafx.scene.chart.ScatterChart;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -13,11 +14,13 @@ public class ChatBot extends JFrame implements ActionListener{
     final int WINDOW_WIGHT = 350;
     final int WINDOW_HEIGHT = 450;
 
-    JTextArea dialogue; //area for dialog
-    JCheckBox ai; //enable/disable AI
-    JTextField message;//fiels for entering massages
+    public JTextArea dialogue; //area for dialog
+    public JCheckBox ai; //enable/disable AI
+    public JTextField message;//fiels for entering massages
     SimpleBot sBot;//chat-bot class
     //SimpleAttributeSet botStyle;//style bot text
+    JButton enter;
+    JPanel buttonPanel;
 
     Game game;
 
@@ -36,13 +39,15 @@ public class ChatBot extends JFrame implements ActionListener{
         JScrollPane scrollBar = new JScrollPane(dialogue);//вертикальный скроллинг
 
         //panel for checkbox, message field and button
-        JPanel buttonPanel = new JPanel();
+        //JPanel buttonPanel = new JPanel();
+        buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));//X_AXIS - размещение по горзонтали
         ai = new JCheckBox("AI");
         //ai.doClick();
         message = new JTextField();
         message.addActionListener( this);
-        JButton enter = new JButton("Enter");
+        //JButton enter = new JButton("Enter");
+        enter = new JButton("Enter");
         enter.addActionListener(this);
 
         //adding all elements to the window
@@ -69,16 +74,18 @@ public class ChatBot extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent event) {
 
 
-        if (message.getText().trim().length() > 0){ //trim - убирает все пробелы
-            dialogue.append((message.getText() + "\n"));//добавление строки в конпоненит диалога
-            switch (message.getText()) {
-                // 1 - поиграем
-                case "1":
-                    dialogue.append(TITLE_OF_PROGRAM.substring(0, 9) + "Выбери игру:\n");
+        if (message.getText().trim().length() > 0) { //trim - убирает все пробелы
+            try {
+                dialogue.append((message.getText() + "\n"));//добавление строки в конпоненит диалога
+                switch (message.getText()) {
+                    // 1 - поиграем
+                    case "1":
+                    /*dialogue.append(TITLE_OF_PROGRAM.substring(0, 9) + "Выбери игру:\n");
                     dialogue.append("1) Больше или меньше\n");
-                    dialogue.append("2) Города\n");
-                    new Game();
-                    //new Game(dialogue, message);
+                    dialogue.append("2) Города\n");*/
+                        //new Game();
+                        new Game(dialogue, message, enter, buttonPanel);
+                        //new Game(dialogue, message);
                         /*switch (message.getText()){
                             case "1":
                                 dialogue.append(TITLE_OF_PROGRAM.substring(0, 9) + "НАКОНЕЦ-ТО СЫГРАЕМ\n");
@@ -87,18 +94,19 @@ public class ChatBot extends JFrame implements ActionListener{
                                 dialogue.append(TITLE_OF_PROGRAM.substring(0, 9) + "НАКОНЕЦ-ТО СЫГРАЕМ2\n");
                                 break;
                         }*/
-                    //dialogue.append(TITLE_OF_PROGRAM.substring(0, 9) +
-                           // game.Game_Selection(message.getText(), ai.isSelected(), dialogue, message) + "\n");
-                            //game. + "\n");
-                   // game.Game_Selection();
-                   //dialogue.setText("I love this world"+ "\n");
-                    break;
-                default:
-                    dialogue.append(TITLE_OF_PROGRAM.substring(0, 9) +
-                            sBot.sayInReturn(message.getText(), ai.isSelected()) + "\n");
-                    break;
-            }
+                        //dialogue.append(TITLE_OF_PROGRAM.substring(0, 9) +
+                        // game.Game_Selection(message.getText(), ai.isSelected(), dialogue, message) + "\n");
+                        //game. + "\n");
+                        // game.Game_Selection();
+                        //dialogue.setText("I love this world"+ "\n");
+                        break;
+                    default:
+                        dialogue.append(TITLE_OF_PROGRAM.substring(0, 9) +
+                                sBot.sayInReturn(message.getText(), ai.isSelected()) + "\n");
+                        break;
+                }
 
+            }catch (Exception e) { }
         }
         message.setText("");//отвечает за очизение строки набора сообщения
         message.requestFocusInWindow();
